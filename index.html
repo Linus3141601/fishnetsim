@@ -10,7 +10,7 @@
 
     <div id="messages">
         <h2>Messages:</h2>
-        <ul id="messageList"></ul>
+        <ul id="messageList">Loading...</ul>
     </div>
 
     <h2>Send a Message</h2>
@@ -52,7 +52,8 @@
             document.getElementById("message").value = "";  // Clear input
             fetchMessages();  // Reload messages
         }
-
+	// Do one initial fetch
+	fetchMessages()
         // Fetch messages every 2 seconds
         setInterval(fetchMessages, 2000);
     </script>
