@@ -1,0 +1,48 @@
+{
+    "messages": [
+        {
+            "ip": "123.45.67.89",
+            "message": "Hello, FishNetSim!",
+            "timestamp": 1740068869821,
+            "nickname": "Linus"
+        },
+        {
+            "ip": "58.123.56.7",
+            "message": "Moinsen",
+            "timestamp": 1740068928096,
+            "nickname": "Levin"
+        },
+        {
+            "nickname": "Linus Kuchen",
+            "message": "Ich bin definitiv ein apfel"
+        },
+        {
+            "nickname": "Linus Kuchen",
+            "message": "egg"
+        },
+        {
+            "nickname": "Linus Kuchen2",
+            "message": "<h3>ok</h3>"
+        },
+        {
+            "nickname": "Linus Kuchen2",
+            "message": "awwww kein html code?"
+        },
+        {
+            "nickname": "linusius",
+            "message": "ehehehehehe"
+        },
+        {
+            "nickname": "linusius",
+            "message": "oiiaioiiiai"
+        },
+        {
+            "nickname": "linusius",
+            "message": "e"
+        },
+        {
+            "nickname": "linusius",
+            "message": "e"
+        }
+    ]
+}

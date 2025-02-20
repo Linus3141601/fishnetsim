@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fishnetsim Chat</title>
+</head>
+<body>
+    <h1>Fishnetsim Chat</h1>
+
+    <div id="messages">
+        <h2>Messages:</h2>
+        <ul id="messageList"></ul>
+    </div>
+
+    <h2>Send a Message</h2>
+    <input type="text" id="nickname" placeholder="Your Name">
+    <input type="text" id="message" placeholder="Your Message">
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        const API_URL = "http://localhost:5000";
+
+        async function fetchMessages() {
+            const response = await fetch(`${API_URL}/get_data`);
+            const data = await response.json();
+            
+            const messageList = document.getElementById("messageList");
+            messageList.innerHTML = "";  // Clear old messages
+            
+            data.messages.forEach(msg => {
+                const li = document.createElement("li");
+                li.textContent = `${msg.nickname}: ${msg.message}`;
+                messageList.appendChild(li);
+            });
+        }
+
+        async function sendMessage() {
+            const nickname = document.getElementById("nickname").value;
+            const message = document.getElementById("message").value;
+            if (!nickname || !message) {
+                alert("Please enter both a nickname and a message!");
+                return;
+            }
+
+            await fetch(`${API_URL}/add_message`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ nickname, message })
+            });
+
+            document.getElementById("message").value = "";  // Clear input
+            fetchMessages();  // Reload messages
+        }
+
+        // Fetch messages every 2 seconds
+        setInterval(fetchMessages, 2000);
+    </script>
+</body>
+</html>
